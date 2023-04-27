@@ -1,20 +1,18 @@
 package com.learn.timezone.client;
 
-import com.learn.timezone.constants.TimeZoneAppConstants;
-import com.learn.timezone.model.TimeZoneDetails;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
+import com.learn.timezone.constants.TimeZoneAppConstants;
+import com.learn.timezone.model.TimeZoneDetails;
 
 @Component
 public class TimeZoneApiClient {
