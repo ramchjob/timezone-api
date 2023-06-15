@@ -29,6 +29,10 @@ public class StudentService {
 	public void deleteById(Integer id) {
 		repository.deleteById(id);
 	}
+
+	public Student updateStudent(Student student, Integer id) {
+		return repository.saveAndFlush(student);
+	}
     
     
 }
