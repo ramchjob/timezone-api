@@ -25,6 +25,10 @@ public class StudentService {
 	public Student createStudent(Student student) {
 		return repository.save(student);
 	}
+
+	public void deleteById(Integer id) {
+		repository.deleteById(id);
+	}
     
     
 }

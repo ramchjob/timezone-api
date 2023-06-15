@@ -1,11 +1,11 @@
 package com.learn.timezone.controller;
 
-import com.learn.timezone.entity.Student;
-import com.learn.timezone.model.TimeZoneDetails;
-import com.learn.timezone.service.StudentService;
-import com.learn.timezone.service.TimeZoneService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.learn.timezone.entity.Student;
+import com.learn.timezone.service.StudentService;
 
 @RestController
 @RequestMapping("/student")
+@CrossOrigin
 public class StudentController {
 
     @Autowired
@@ -27,6 +29,12 @@ public class StudentController {
     public ResponseEntity<Student> getStudentById(@PathVariable  Integer id) {
     	Student details = service.getStudentById(id);
         return ResponseEntity.ok(details);
+    }
+    
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteStudnetById(@PathVariable  Integer id) {
+    	service.deleteById(id);
+        return ResponseEntity.ok().build();
     }
     
     @PostMapping
